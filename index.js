@@ -11,9 +11,10 @@ const loginRoutes = require("./src/routes/router-login");
 const registerRoutes = require("./src/routes/router-register");
 const pupukRoutes = require("./src/routes/router-pupuk");
 const bibitRoutes = require("./src/routes/router-bibit");
-const appRoutes = require("./src/routes/router-app");
+const appRoutes = require("./src/routes/router-app"); // Pastikan file ini ada
+const { home } = require("./src/controllers/controller-home");
 
-// Configurasi library session
+// Konfigurasi library session
 app.use(
   session({
     resave: false,
@@ -27,7 +28,7 @@ app.use(
   })
 );
 
-// Configurasi dan gunakan library
+// Konfigurasi dan gunakan library
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(flash());
@@ -50,7 +51,7 @@ app.use("/login", loginRoutes);
 app.use("/register", registerRoutes);
 app.use("/pupuk", pupukRoutes);
 app.use("/bibit", bibitRoutes);
-app.use("/", appRoutes);
+app.use("/", appRoutes); // appRoutes menangani halaman "/"
 
 console.log(app._router.stack);
 
