@@ -1,3 +1,4 @@
+-- Active: 1732348892442@@127.0.0.1@3306
 CREATE TABLE `pupuk` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `nama` VARCHAR(50) NOT NULL,         
