@@ -37,9 +37,9 @@
             <thead>
                 <tr>
                     <th>Nama Pupuk</th>
-                    <th>Jenis</th>
-                    <th>Kuantitas</th>
-                    <th>Harga</th>
+                    <th>Tipe</th>
+                    <th>Stok</th>
+                    <th>Deskripsi</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -47,24 +47,25 @@
                 <% if (pupuk.length > 0) { %>
                     <% pupuk.forEach(function(item) { %>
                         <tr>
+                            
                             <td><%= item.nama %></td>
 
-                            <td><%= item.jenis %></td>
+                            <td><%= item.tipe || "Tidak Tersedia" %></td>
 
-                            <td><%= item.kuantitas %></td>
+                            <td><%= item.stok %></td>
 
-                            <td>Rp<%= item.harga.toLocaleString() %></td>
+                            <td><%= item.deskripsi || "Tidak Ada Deskripsi" %></td>
 
                             <td>
                                 <a href="<%= url + 'pupuk/edit/' + item.id %>" class="btn btn-warning btn-sm">Edit</a>
                                 <a href="<%= url + 'pupuk/delete/' + item.id %>" class="btn btn-danger btn-sm"
-                                    onclick="return confirm('Are you sure you want to delete this item?')">Delete</a>
+                                    onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">Delete</a>
                             </td>
                         </tr>
                     <% }); %>
                 <% } else { %>
                     <tr>
-                        <td colspan="5" class="text-center">No Data</td>
+                        <td colspan="5" class="text-center">Tidak Ada Data</td>
                     </tr>
                 <% } %>
             </tbody>
