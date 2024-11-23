@@ -23,7 +23,7 @@ module.exports ={
             pool.getConnection(function(err, connection) {
                 if (err) throw err;
                 connection.query(
-                    `SELECT * FROM users WHERE email = ? AND password = SHA2(?,512)`
+                    `SELECT * FROM users WHERE email = ? AND password = ?`
                 , [email, password],function (error, results) {
                     if (error) throw error;  
                     if (results.length > 0) {
